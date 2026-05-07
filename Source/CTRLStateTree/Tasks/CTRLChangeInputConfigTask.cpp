@@ -1,4 +1,4 @@
-﻿#include "CTRLChangeInputConfigTask.h"
+#include "CTRLChangeInputConfigTask.h"
 
 #include "StateTreeExecutionContext.h"
 #include "TimerManager.h"
@@ -67,9 +67,10 @@ void FCTRLChangeInputConfigTask::ExitState(FStateTreeExecutionContext& Context, 
 	ChangeInputConfigSubsystem->PopInputConfig(Handle);
 }
 
-EDataValidationResult FCTRLChangeInputConfigTask::Compile(FStateTreeDataView const InstanceDataView, TArray<FText>& ValidationMessages)
+/*
+EDataValidationResult FCTRLChangeInputConfigTask::PostCompile(FStateTreeDataView const InstanceDataView, TArray<FText>& ValidationMessages) const
 {
-	auto SuperResult = Super::Compile(InstanceDataView, ValidationMessages);
+	auto SuperResult = FCTRLStateTreeCommonBaseTask::PostCompile(InstanceDataView, ValidationMessages);
 	auto const InstanceData = InstanceDataView.GetPtr<FCTRLChangeInputConfigTaskData>();
 	if (InstanceData->bUseInputConfigPreset && !IsValid(InstanceData->InputConfigPreset))
 	{
@@ -78,6 +79,7 @@ EDataValidationResult FCTRLChangeInputConfigTask::Compile(FStateTreeDataView con
 	}
 	return SuperResult;
 }
+*/
 #if WITH_EDITOR
 FText FCTRLChangeInputConfigTask::GetDescription(
 	FGuid const& ID,

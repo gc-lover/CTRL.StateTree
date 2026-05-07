@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: © 2025 NTY.studio
+// SPDX-FileCopyrightText: © 2025 NTY.studio
 // SPDX-License-Identifier: MIT
 
 #pragma once
@@ -67,7 +67,7 @@ public:
 	bool ListenForEvents(FStateTreeExecutionContext const& Context) const;
 	void UnlistenForEvents(FStateTreeExecutionContext const& Context) const;
 	virtual void ExitState(FStateTreeExecutionContext& Context, FStateTreeTransitionResult const& Transition) const override;
-	virtual EDataValidationResult Compile(FStateTreeDataView InstanceDataView, TArray<FText>& ValidationMessages) override;
+	// virtual EDataValidationResult PostCompile(FStateTreeDataView InstanceDataView, TArray<FText>& ValidationMessages) const override;
 
 protected:
 	UCTRLStateTreeEventBridge* MakeBridge(FStateTreeExecutionContext const& Context) const;

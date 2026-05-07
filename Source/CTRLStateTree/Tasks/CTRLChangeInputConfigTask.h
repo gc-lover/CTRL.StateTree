@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "CoreMinimal.h"
 #include "StateTreeConditionBase.h"
@@ -39,7 +39,7 @@ struct FCTRLChangeInputConfigTask : public FCTRLStateTreeCommonBaseTask
 	FCTRLInputModeConfig GetInputConfig(FInstanceDataType const* InstanceData) const;
 	virtual EStateTreeRunStatus EnterState(FStateTreeExecutionContext& Context, FStateTreeTransitionResult const& Transition) const override;
 	virtual void ExitState(FStateTreeExecutionContext& Context, FStateTreeTransitionResult const& Transition) const override;
-	virtual EDataValidationResult Compile(FStateTreeDataView InstanceDataView, TArray<FText>& ValidationMessages) override;
+	// virtual EDataValidationResult PostCompile(FStateTreeDataView InstanceDataView, TArray<FText>& ValidationMessages) const override; // TODO: Find replacement for final Compile in 5.7
 
 #if WITH_EDITOR
 	virtual FText GetDescription(

@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: © 2025 NTY.studio
+// SPDX-FileCopyrightText: © 2025 NTY.studio
 // SPDX-License-Identifier: MIT
 
 #include "CTRLGasEventToStateTreeEventTask.h"
@@ -33,9 +33,10 @@ void UCTRLStateTreeEventBridge::GameplayEventContainerCallback(FGameplayTag cons
 	}
 }
 
-EDataValidationResult FCTRLGasEventToStateTreeEventTask::Compile(FStateTreeDataView const InstanceDataView, TArray<FText>& ValidationMessages)
+/*
+EDataValidationResult FCTRLGasEventToStateTreeEventTask::PostCompile(FStateTreeDataView const InstanceDataView, TArray<FText>& ValidationMessages) const
 {
-	auto const SuperResult = FCTRLStateTreeCommonBaseTask::Compile(InstanceDataView, ValidationMessages);
+	auto const SuperResult = FCTRLStateTreeCommonBaseTask::PostCompile(InstanceDataView, ValidationMessages);
 	EDataValidationResult Result = EDataValidationResult::Valid;
 
 	auto const* Data = InstanceDataView.GetPtr<FInstanceDataType>();
@@ -47,6 +48,7 @@ EDataValidationResult FCTRLGasEventToStateTreeEventTask::Compile(FStateTreeDataV
 
 	return CombineDataValidationResults(SuperResult, Result);
 }
+*/
 
 UCTRLStateTreeEventBridge* FCTRLGasEventToStateTreeEventTask::MakeBridge(FStateTreeExecutionContext const& Context) const
 {

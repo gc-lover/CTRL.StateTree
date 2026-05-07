@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "CoreMinimal.h"
 #include "StateTreeExecutionContext.h"
@@ -40,7 +40,7 @@ public:
 		auto const BaseString = String
 		                        .Replace(TEXT("STT_"), TEXT(""))
 		                        .Replace(TEXT("STT"), TEXT(""));
-		if (Formatting == RichText)
+		if (Formatting == EStateTreeNodeFormatting::RichText)
 		{
 			// fix up rich text, named closing tags are not supported
 			return BaseString
@@ -64,13 +64,13 @@ public:
 	}
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "StateTree")
-	static FText FormatDescription(FString const& Description, EStateTreeNodeFormatting const Formatting = Text)
+	static FText FormatDescription(FString const& Description, EStateTreeNodeFormatting const Formatting = EStateTreeNodeFormatting::Text)
 	{
 		return FText::AsCultureInvariant(ReplaceRichText(Description, Formatting));
 	}
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "StateTree")
-	static FText FormatDescriptionText(FText const& Description, EStateTreeNodeFormatting const Formatting = Text)
+	static FText FormatDescriptionText(FText const& Description, EStateTreeNodeFormatting const Formatting = EStateTreeNodeFormatting::Text)
 	{
 		return FText::AsCultureInvariant(ReplaceRichText(Description.ToString(), Formatting));
 	}
