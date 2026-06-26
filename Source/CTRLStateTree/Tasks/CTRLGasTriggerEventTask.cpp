@@ -75,7 +75,7 @@ FText FCTRLGasTriggerEventTask::GetDescription(FGuid const& ID, FStateTreeDataVi
 	FInstanceDataType const* Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	if (Data->bUseEnterGameplayEvent)
 	{
-		FStateTreePropertyPath const EventTagPath = UCTRLStateTreeUtils::GetStructPropertyPath(
+		FPropertyBindingPath const EventTagPath = UCTRLStateTreeUtils::GetStructPropertyPath(
 			ID,
 			GET_MEMBER_NAME_CHECKED(FInstanceDataType, EnterGameplayEvent),
 			GET_MEMBER_NAME_CHECKED(FGameplayEventData, EventTag)
@@ -94,7 +94,7 @@ FText FCTRLGasTriggerEventTask::GetDescription(FGuid const& ID, FStateTreeDataVi
 	}
 	if (Data->bUseExitGameplayEvent)
 	{
-		FStateTreePropertyPath const EventTagPath = UCTRLStateTreeUtils::GetStructPropertyPath(
+		FPropertyBindingPath const EventTagPath = UCTRLStateTreeUtils::GetStructPropertyPath(
 			ID,
 			GET_MEMBER_NAME_CHECKED(FInstanceDataType, ExitGameplayEvent),
 			GET_MEMBER_NAME_CHECKED(FGameplayEventData, EventTag)

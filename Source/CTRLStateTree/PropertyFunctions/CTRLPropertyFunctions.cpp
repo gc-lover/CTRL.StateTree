@@ -70,7 +70,7 @@ FText FCTRLStringToTextPropertyFunction::GetDescription(
 {
 	auto const& [Input, Result] = InstanceDataView.Get<FInstanceDataType>();
 
-	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
+	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
 	if (InputValue.IsEmpty())
 	{
 		InputValue = FText::FromString(Input);
@@ -90,7 +90,7 @@ FText FCTRLStringToNamePropertyFunction::GetDescription(FGuid const& ID, FStateT
 {
 	auto const& [Input, Result] = InstanceDataView.Get<FInstanceDataType>();
 
-	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
+	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
 	if (InputValue.IsEmpty())
 	{
 		InputValue = FText::FromString(Input);
@@ -117,7 +117,7 @@ FText FCTRLBoolToStringPropertyFunction::GetDescription(
 {
 	auto const& [Input, Result] = InstanceDataView.Get<FInstanceDataType>();
 
-	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
+	FText InputValue = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Input)), Formatting);
 	if (InputValue.IsEmpty())
 	{
 		InputValue = FText::FromString(LexToString(Input));

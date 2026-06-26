@@ -65,7 +65,7 @@ FText FCTRLSpawnActorTask::GetDescription(FGuid const& ID, FStateTreeDataView co
 	FString Out = FString::Printf(TEXT("<s>Spawn Actor</s> %s "), *UCTRLStateTreeUtils::SymbolStateEnter);
 	FInstanceDataType const* Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	FText const ActorClassName = CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, ActorClass, Data->ActorClass ? Data->ActorClass.Get()->GetDisplayNameText().ToString() : FString("None"));
-	auto const DestroyOnExitPath = FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bDestroyOnExit));
+	auto const DestroyOnExitPath = FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bDestroyOnExit));
 	auto const DestroyOnExitSource = BindingLookup.GetPropertyBindingSource(DestroyOnExitPath);
 	FText const DestroyOnExit = DestroyOnExitSource ? BindingLookup.GetBindingSourceDisplayName(DestroyOnExitPath, Formatting) : FText::GetEmpty();
 	FString const OnExitString = (DestroyOnExitSource || Data->bDestroyOnExit) ? FString::Printf(TEXT(" %s Destroy %s"), *UCTRLStateTreeUtils::SymbolStateExit, *DestroyOnExit.ToString()) : FString();

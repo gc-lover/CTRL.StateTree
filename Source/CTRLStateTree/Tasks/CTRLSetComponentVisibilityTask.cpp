@@ -43,7 +43,7 @@ FText FCTRLComponentVisibilityTask::GetDescription(FGuid const& ID, FStateTreeDa
 	FText const SceneComponentName = CTRLST_GET_BINDING_TEXT(ID,  InstanceDataView, BindingLookup, Formatting, SceneComponent, Data->SceneComponent ? Data->SceneComponent.GetName() : FString("None"));
 	auto const& Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	FText const TargetStateText = CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, bTargetVisibility, FString(Data->bTargetVisibility ? TEXT("Visible") : TEXT("Hidden")));
-	auto const Source = BindingLookup.GetPropertyBindingSource(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetVisibility)));
+	auto const Source = BindingLookup.GetPropertyBindingSource(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetVisibility)));
 	FString const NotTargetStateString = FString::Printf(
 		TEXT("%s%s"),
 		Source ? TEXT("!") : TEXT(""),
@@ -77,7 +77,7 @@ FText FCTRLComponentVisibilityInGameTask::GetDescription(
 	FText const SceneComponentName = CTRLST_GET_BINDING_TEXT(ID,  InstanceDataView, BindingLookup, Formatting, SceneComponent, GetNameSafe(Data->SceneComponent));
 	auto const& Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	FText const TargetStateText = CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, bTargetVisibility, FString(Data->bTargetVisibility ? TEXT("Visible") : TEXT("Hidden")));
-	auto const Source = BindingLookup.GetPropertyBindingSource(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetVisibility)));
+	auto const Source = BindingLookup.GetPropertyBindingSource(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetVisibility)));
 	FString const NotTargetStateString = FString::Printf(
 		TEXT("%s%s"),
 		Source ? TEXT("!") : TEXT(""),

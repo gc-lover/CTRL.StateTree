@@ -69,7 +69,7 @@ FText FCTRLActivateWidgetTask::GetDescription(FGuid const& ID, FStateTreeDataVie
 {
 	FInstanceDataType const* InstanceData = InstanceDataView.GetPtr<FInstanceDataType>();
 	TArray Result = {FString::Printf(TEXT("%s<s>ActivateWidget</s>"), *UCTRLStateTreeUtils::GetEndStateSymbol(InstanceData->bCompleteOnMatchingActivationState))};
-	FText const WidgetBindingText = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Widget)), Formatting);
+	FText const WidgetBindingText = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Widget)), Formatting);
 	if (WidgetBindingText.IsEmpty())
 	{
 		Result.Add(FString::Printf(TEXT("<b>%s Invalid Widget</b>"), *UCTRLStateTreeUtils::SymbolInvalid));

@@ -12,7 +12,7 @@
 
 #define CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, MemberName, DefaultString) \
 ([&]() -> FText { \
-	auto const Path = FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, MemberName)); \
+	auto const Path = FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, MemberName)); \
 	auto const Source = BindingLookup.GetPropertyBindingSource(Path); \
 	FInstanceDataType const* Data = InstanceDataView.GetPtr<FInstanceDataType>(); \
 	return Source ? FText::FromString(FString::Printf(TEXT("<s>{</s>%s<s>}</s>"), *BindingLookup.GetBindingSourceDisplayName(Path).ToString())) : FText::FromString(DefaultString); \
@@ -109,5 +109,5 @@ public:
 		return State->Tag;
 	}
 
-	static FStateTreePropertyPath GetStructPropertyPath(FGuid const& ID, FName A, FName B);
+	static FPropertyBindingPath GetStructPropertyPath(FGuid const& ID, FName A, FName B);
 };

@@ -35,7 +35,7 @@ FText FCTRLSetComponentActiveTask::GetDescription(FGuid const& ID, FStateTreeDat
 	FText const ComponentName = CTRLST_GET_BINDING_TEXT(ID,  InstanceDataView, BindingLookup, Formatting, ActorComponent, GetNameSafe(Data->ActorComponent));
 	auto const& Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	FText const TargetStateText = CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, bTargetActiveState, FString(Data->bTargetActiveState ? TEXT("Active") : TEXT("Inactive")));
-	auto const Source = BindingLookup.GetPropertyBindingSource(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetActiveState)));
+	auto const Source = BindingLookup.GetPropertyBindingSource(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetActiveState)));
 	FString const NotTargetStateString = FString::Printf(
 		TEXT("%s%s"),
 		Source ? TEXT("!") : TEXT(""),

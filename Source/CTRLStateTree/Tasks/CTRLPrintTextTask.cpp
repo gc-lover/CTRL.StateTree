@@ -55,14 +55,14 @@ FText FCTRLPrintTextTask::GetDescription(FGuid const& ID, FStateTreeDataView con
 	if (OnEnter.bEnabled)
 	{
 		Result = Result.Append(TEXT(" "));
-		FStateTreePropertyPath const Path = UCTRLStateTreeUtils::GetStructPropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, OnEnter), GET_MEMBER_NAME_CHECKED(FCTRLPrintTextTaskOnEventConfig, Message));
+		FPropertyBindingPath const Path = UCTRLStateTreeUtils::GetStructPropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, OnEnter), GET_MEMBER_NAME_CHECKED(FCTRLPrintTextTaskOnEventConfig, Message));
 		auto const Msg = BindingLookup.GetBindingSourceDisplayName(Path, Formatting).ToString();
 		Result = Result.Append(FString::Printf(TEXT("%s %s %s"), *UCTRLStateTreeUtils::SymbolStateEnter, *OnEnter.Prefix.ToString(), *Msg).TrimStartAndEnd());
 	}
 	if (OnExit.bEnabled)
 	{
 		Result = Result.Append(TEXT(" "));
-		FStateTreePropertyPath const Path = UCTRLStateTreeUtils::GetStructPropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, OnExit), GET_MEMBER_NAME_CHECKED(FCTRLPrintTextTaskOnEventConfig, Message));
+		FPropertyBindingPath const Path = UCTRLStateTreeUtils::GetStructPropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, OnExit), GET_MEMBER_NAME_CHECKED(FCTRLPrintTextTaskOnEventConfig, Message));
 		auto const Msg = BindingLookup.GetBindingSourceDisplayName(Path, Formatting).ToString();
 		Result = Result.Append(FString::Printf(TEXT("%s %s %s"), *UCTRLStateTreeUtils::SymbolStateExit, *OnExit.Prefix.ToString(), *Msg).TrimStartAndEnd());
 	}

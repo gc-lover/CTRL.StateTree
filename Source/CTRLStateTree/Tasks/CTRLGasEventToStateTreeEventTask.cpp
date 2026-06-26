@@ -202,8 +202,8 @@ FText FCTRLGasEventToStateTreeEventTask::GetDescription(
 	EStateTreeNodeFormatting const Formatting
 ) const
 {
-	auto const ActorName = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Actor)), Formatting).ToString();
-	auto const TagNames = BindingLookup.GetBindingSourceDisplayName(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, EventTags)), Formatting).ToString();
+	auto const ActorName = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, Actor)), Formatting).ToString();
+	auto const TagNames = BindingLookup.GetBindingSourceDisplayName(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, EventTags)), Formatting).ToString();
 	return UCTRLStateTreeUtils::FormatDescription(
 		FString::Printf(TEXT("%s<s>Gameplay → StateTree Event:</s> %s <s>on</s> %s"), *UCTRLStateTreeUtils::SymbolTaskContinuous, *TagNames, *ActorName),
 		Formatting

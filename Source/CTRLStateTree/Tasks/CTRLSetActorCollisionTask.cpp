@@ -35,7 +35,7 @@ FText FCTRLSetActorCollisionTask::GetDescription(FGuid const& ID, FStateTreeData
 	FText const ActorName = CTRLST_GET_BINDING_TEXT(ID,  InstanceDataView, BindingLookup, Formatting, Actor, GetNameSafe(Data->Actor));
 	auto const& Data = InstanceDataView.GetPtr<FInstanceDataType>();
 	FText const TargetStateText = CTRLST_GET_BINDING_TEXT(ID, InstanceDataView, BindingLookup, Formatting, bTargetCollisionEnabled, Data->bTargetCollisionEnabled ? TEXT("Enabled") : TEXT("Disabled"));
-	auto const Source = BindingLookup.GetPropertyBindingSource(FStateTreePropertyPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetCollisionEnabled)));
+	auto const Source = BindingLookup.GetPropertyBindingSource(FPropertyBindingPath(ID, GET_MEMBER_NAME_CHECKED(FInstanceDataType, bTargetCollisionEnabled)));
 	FString const NotTargetStateString = FString::Printf(
 		TEXT("%s%s"),
 		Source ? TEXT("!") : TEXT(""),
